@@ -1,0 +1,12 @@
+# todo-clusterip.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-internal
+spec:
+  type: ClusterIP  # 기본값이라 생략 가능
+  selector:
+    app: todo      # todo 라벨을 가진 Pod 선택
+  ports:
+  - port: 80       # 서비스 포트
+    targetPort: 8000  # Pod 포트
