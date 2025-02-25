@@ -1,0 +1,12 @@
+# todo-loadbalancer.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: todo    # version 라벨 제외로 v1, v2 모두 선택
+  ports:
+  - port: 80
+    targetPort: 8000
