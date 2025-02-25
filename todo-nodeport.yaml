@@ -1,0 +1,13 @@
+# todo-nodeport.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-qa
+spec:
+  type: NodePort
+  selector:
+    app: todo
+  ports:
+  - port: 80          # 서비스 포트
+    targetPort: 8000  # Pod 포트
+    nodePort: 30080   # 노드에 개방할 포트
